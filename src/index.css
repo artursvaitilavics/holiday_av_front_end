@@ -1,13 +1,72 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+
+.deleteButton {
+  padding-left: 14px;
+}
+
+#employeeId {
+  width: 30px;
+  /* text-align: center; */
+}
+
+#employeeName {
+  width: 80px;
+}
+
+
+#employeeLastName{
+  width: 100px;
+}
+
+#employeeEmail{
+  width: 200px;
+}
+
+
+#employeeStatus{
+  width: 100px;
+}
+
+.employees {
+  margin: auto;
+  width: 50%;
+  border: 3px solid rgba(0, 128, 100, 0.295);
+  border-radius: 5px;
+  /* padding: 10px; */
+}
+
+.employeeComponent{
+ padding: 5px; 
+}
+
+.tableCollumn{
+  background-color:rgba(0, 0, 0, 0);
+  border-style: none;
+  border: 0px;
+}
+
+
+/* Removing borders and stuff, when focusing on input */
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+
+/* To avoid border and stuff in chrome */
+*:focus {
+  outline: none;
 }

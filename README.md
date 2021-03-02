@@ -1,3 +1,35 @@
+TABLE EXAMPLE:
+
+
+    <div className="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Mark</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Jacob</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Larry</td>
+        </tr>
+      </tbody>
+    </div>
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
