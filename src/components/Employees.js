@@ -3,34 +3,7 @@ import Employee from "./model/Employee";
 
 const Employees = ({ title }) => {
   const [employees, setEmployees] = useState([
-    {
-      id: 1,
-      name: "Bilbo",
-      status: "EMPLOYEE",
-      last_name: "Baggins",
-      email: "bilbo.baggins@middle-earth.com",
-    },
-    {
-      id: 2,
-      name: "Frodo",
-      status: "EMPLOYEE",
-      last_name: "Baggins",
-      email: "frodo.baggins@middle-earth.com",
-    },
-    {
-      id: 3,
-      name: "Gandalf",
-      status: "EMPLOYEE",
-      last_name: "Mithrandir",
-      email: "gandlaf.the.white@aman.com",
-    },
-    {
-      id: 4,
-      name: "Tom",
-      status: "EMPLOYEE",
-      last_name: "Bombadil",
-      email: "tom.bombadil@middle-earth.com",
-    },
+
   ]);
 
   useEffect(() => {
@@ -70,6 +43,11 @@ const Employees = ({ title }) => {
 
     setEmployees(employees.filter((employee) => employee.id !== id));
   };
+
+  const updateEmployee = async (id) => {
+    // 
+  }
+
 
   return (
     <div className="employees">
