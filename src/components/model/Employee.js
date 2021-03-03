@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import PropTypes from "prop-types";
-import { FaRegTrashAlt } from "react-icons/fa";
+import { FaRegTrashAlt, FaRegSave } from "react-icons/fa";
+import { GrEdit } from "react-icons/gr";
 
 const Employee = ({
   empId,
@@ -12,12 +13,20 @@ const Employee = ({
   onDelete,
   isReadOnly,
 }) => {
-  const [isActive, setReadOnly] = useState("false");
+  const [isActive, setReadOnly] = useState(true);
+  const [saveVisible, setSaveVisible] = useState(false);
 
-  const getId = (e) => {
+  const editData = (e) => {
     const id = e.target.getAttribute("id");
-    console.log(id);
-    return id;
+    setReadOnly(!isActive);
+    setSaveVisible(!saveVisible);
+    console.log("Edit...", id);
+  };
+
+  const save = (e) => {
+    const id = e.target.getAttribute("id");
+    setSaveVisible(!saveVisible);
+    console.log("Save...", id);
   };
 
   return (
@@ -30,38 +39,42 @@ const Employee = ({
         className="tableCollumn"
         id="employeeId"
         type="text"
-        value={empId}
+        defaultValue={empId}
+        readOnly
       />
       <input
         className="tableCollumn"
         id="employeeName"
         type="text"
-        value={name}
+        defaultValue={name}
+        readOnly={isActive}
       />
       <input
         className="tableCollumn"
         id="employeeLastName"
         type="text"
-        value={lastName}
+        defaultValue={lastName}
+        readOnly={isActive}
       />
       <input
         className="tableCollumn"
         id="employeeEmail"
         type="text"
-        value={email}
+        defaultValue={email}
+        readOnly={isActive}
       />
 
       <input
         className="tableCollumn"
         id="employeeStatus"
         type="text"
-        value={status}
+        defaultValue={status}
+        readOnly={isActive}
       />
       <FaRegTrashAlt className="deleteButton" onClick={() => onDelete(empId)} />
-      <button id={empId} onClick={(e) => setReadOnly(getId(e))}>
-        Activate
-      </button>
-      <h2>{isActive}</h2>
+      {saveVisible ? null : <GrEdit id={empId} onClick={(e) => editData(e)} />}
+
+      {saveVisible ? <FaRegSave id={empId} onClick={(e) => save(e)} /> : <></>}
     </div>
   );
 };
