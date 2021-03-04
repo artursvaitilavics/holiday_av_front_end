@@ -2,9 +2,7 @@ import { React, useState, useEffect } from "react";
 import Employee from "./model/Employee";
 
 const Employees = ({ title }) => {
-  const [employees, setEmployees] = useState([
-
-  ]);
+  const [employees, setEmployees] = useState([]);
 
   useEffect(() => {
     const getEmpyees = async () => {
@@ -44,25 +42,34 @@ const Employees = ({ title }) => {
     setEmployees(employees.filter((employee) => employee.id !== id));
   };
 
-  const updateEmployee = async (id) => {
-    // 
-  }
-
+  const updateEmployee = async (employee) => {
+    // let item = {namelastName, email, status}
+    let id = employee.id;
+    console.log("PUT:", { id });
+    await fetch(`http://localhost:8080/rest/api/Employee.svc/employee(${id})`, {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(employee),
+    });
+  };
 
   return (
     <div className="employees">
       {employees.map((employee) => (
+        <p key={employee.id}>{employee.name}</p>
+      ))}
+      {/* {employees.map((employee) => (
         <Employee
           key={employee.id}
-          empId={employee.id}
-          name={employee.name}
-          lastName={employee.last_name}
-          status={employee.status}
-          email={employee.email}
+          employee={employee}
           color={setColors()}
           onDelete={deleteEmployee}
+          onSave={updateEmployee}
         />
-      ))}
+      ))} */}
     </div>
   );
 };
